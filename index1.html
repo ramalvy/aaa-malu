@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+<div class="container">
+
+    <div id="home" class="page active">
+        <h1></h1>
+        <p class="quote">  </p>
+        <p> 
+            alooo sayanggg, ngomong ngomong kamu ga bosen gitu cantik terus tiap hari? bahkan kamu
+            tu makin hari makin cantikkkk tauu aaaaaa sama kaya rasa cinta aku ke kamuuu yang makin
+            hari makinnn bertambah ahahaha, kamu pake pelet apasii kok bisa bikin aku jatuh cinta banget
+            sama kamuuuu, pokokny akutuuuu sayangggg cintaaaaa bangettt banget banget sama kamuuuu.
+            kamu cantikkkk kamuu baik kamuu lucuuu pokokny kamu itu ngga ada kurangny. makasi ya sayanggg
+            udah mau hadirr kedalam hidup akuu, makasii udah mau jadi rumah terbaikkk buatt akuuu hehehe,
+            kamu jangan ada niatan buat ninggalin akuu yaa aku bener bener gabisaaa klo harusss ngejalanin
+            hidup ini tanpa kamuuu, aku cumaaa mauu ngehabisinn hiduppp aku sama kamu sayanggg, karna sekarangggg
+            kamu itu segalany buat akuu ahahaha alayyy bangettt yaa akuuu, intiny akuu sayangggg bangettt
+            sama kamu cintaaaa bangett sama kamuuu. i loveeee youuuuuuu moree sayang akuu mwahhh
+        <p class="quote"></p>
+        <body>
+            <div class="container">
+                <form action="index2.html" method="GET" onsubmit="validateName(event)">
+                    <button type="submit">next</button>
+                </form>
+            </div>
+        </body>
+    </div>
+    <script>
+    function setupMusic() {
+        const music = document.getElementById('backgroundMusic');
+        
+        const isMusicPlaying = localStorage.getItem('musicPlaying') === 'true';
+        const musicCurrentTime = localStorage.getItem('musicCurrentTime') || 0;
+    
+        if (isMusicPlaying) {
+            music.currentTime = parseFloat(musicCurrentTime);
+        }
+    
+        music.addEventListener('play', () => {
+            localStorage.setItem('musicPlaying', 'true');
+        });
+    
+        music.addEventListener('pause', () => {
+            localStorage.setItem('musicPlaying', 'false');
+        });
+    
+        setInterval(() => {
+            localStorage.setItem('musicCurrentTime', music.currentTime);
+        }, 1000);
+    
+        document.addEventListener('click', function startMusic() {
+            music.play().catch(error => {
+                console.log('Autoplay prevented', error);
+            });
+            document.removeEventListener('click', startMusic);
+        });
+    }
+    
+        document.addEventListener('DOMContentLoaded', setupMusic);
+    </script>
+    
+</script>
+<!-- Musik -->
+<audio autoplay loop>
+    <source src="aa.mp3" type=" audio/mpeg" />
+  </audio>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const audio = document.querySelector("audio");
+      const userInteraction = () => {
+        audio.play();
+        document.removeEventListener("click", userInteraction);
+      };
+      document.addEventListener("click", userInteraction);
+    });
+    </script>
+    </head>
+
+<html>

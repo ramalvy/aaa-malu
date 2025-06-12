@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hai</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>SELAMAT MALAM SAYANG</h1>
+    <p></p>
+    <body>
+        <div class="container">
+            <form action="index1.html" method="GET" onsubmit="validateName(event)">
+                <button type="submit">next</button>
+            </form>
+        </div>
+    </body>
+  </div>
+  <script src="script.js"></script>
+  <script>
+  function setupMusic() {
+    const music = document.getElementById('backgroundMusic');
+    
+    const isMusicPlaying = localStorage.getItem('musicPlaying') === 'true';
+    const musicCurrentTime = localStorage.getItem('musicCurrentTime') || 0;
+
+    if (isMusicPlaying) {
+        music.currentTime = parseFloat(musicCurrentTime);
+    }
+
+    music.addEventListener('play', () => {
+        localStorage.setItem('musicPlaying', 'true');
+    });
+
+    music.addEventListener('pause', () => {
+        localStorage.setItem('musicPlaying', 'false');
+    });
+
+    setInterval(() => {
+        localStorage.setItem('musicCurrentTime', music.currentTime);
+    }, 1000);
+
+    document.addEventListener('click', function startMusic() {
+        music.play().catch(error => {
+            console.log('Autoplay prevented', error);
+        });
+        document.removeEventListener('click', startMusic);
+    });
+}
+
+    document.addEventListener('DOMContentLoaded', setupMusic);
+</script>
+</body>
+</html>
